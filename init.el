@@ -41,17 +41,17 @@
 (require 'company-web-jade)                          ; load company mode jade backend
 (require 'company-web-slim)                          ; load company mode slim backend
 
+;; you may key bind, for example for web-mode:
+(add-hook 'web-mode-hook (lambda()
+			   (set (make-local-variable 'company-backends) '(company-web-html))
+			   (company-mode t)))
+
 ;; Company-tern
 (require 'company-tern)
 (add-hook 'js2-mode-hook (lambda()
 			   (set (make-local-variable 'company-backends) '(company-tern))
 			   (tern-mode)
 			   (company-mode)))
-
-;; you may key bind, for example for web-mode:
-(add-hook 'web-mode-hook (lambda()
-			   (set (make-local-variable 'company-backends) '(company-web-html))
-			   (company-mode t)))
 
 
 ;; Define auto complete for company
