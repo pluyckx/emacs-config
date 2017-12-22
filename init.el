@@ -29,10 +29,10 @@
 ;; Configure Company
 (require 'company)                                   ; load company mode
 
-(setq company-minimum-prefix-length 0)            ; WARNING, probably you will get perfomance issue if min len is 0!
+(setq company-minimum-prefix-length 1)            ; WARNING, probably you will get perfomance issue if min len is 0!
 (setq company-tooltip-limit 20)                      ; bigger popup window
 (setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
-(setq company-idle-delay .1)                         ; decrease delay before autocompletion popup shows
+(setq company-idle-delay 0)                         ; decrease delay before autocompletion popup shows
 (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
 
 ;; Company-web
