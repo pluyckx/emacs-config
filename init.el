@@ -13,7 +13,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (treemacs company-web))))
+ '(package-selected-packages
+   (quote
+    (json-mode js2-mode company-tern treemacs company-web))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -39,15 +41,23 @@
 (require 'company-web-jade)                          ; load company mode jade backend
 (require 'company-web-slim)                          ; load company mode slim backend
 
+;; Company-tern
+(require 'company-tern)
+(add-hook 'js2-mode-hook (lambda()
+			   (set (make-local-variable 'company-backends) '(company-tern))
+			   (tern-mode)
+			   (company-mode)))
+
 ;; you may key bind, for example for web-mode:
 (add-hook 'web-mode-hook (lambda()
 			   (set (make-local-variable 'company-backends) '(company-web-html))
 			   (company-mode t)))
 
-(define-key web-mode-map (kbd "C-;") 'company-complete)
+(define-key company-mode-map (kbd "C-;") 'company-complete)
 
 
 ;; Set default modes based on extensions
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 (treemacs)

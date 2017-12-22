@@ -1,3 +1,5 @@
 elpa/
 *~
 auto-save-list
+node_modules
+package-lock.json
