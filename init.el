@@ -36,6 +36,7 @@
 (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
 
 ;; Company-web
+(require 'company-css)
 (require 'company-web-html)                          ; load company mode html backend
 ;; and/or
 (require 'company-web-jade)                          ; load company mode jade backend
@@ -43,7 +44,7 @@
 
 ;; you may key bind, for example for web-mode:
 (add-hook 'web-mode-hook (lambda()
-			   (set (make-local-variable 'company-backends) '(company-tern company-web-html))
+			   (set (make-local-variable 'company-backends) '(company-tern company-web-html company-css))
 			   (company-mode t)))
 
 ;; Company-tern
@@ -70,6 +71,7 @@
 
 ;; Set default modes based on extensions
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 (treemacs)
