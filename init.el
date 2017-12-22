@@ -53,6 +53,8 @@
 			   (set (make-local-variable 'company-backends) '(company-web-html))
 			   (company-mode t)))
 
+
+;; Define auto complete for company
 (define-key company-mode-map (kbd "C-;") 'company-complete)
 
 
