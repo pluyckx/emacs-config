@@ -72,6 +72,7 @@
 ;; Set default modes based on extensions
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.ssi\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 (treemacs)
