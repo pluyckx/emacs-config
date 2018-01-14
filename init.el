@@ -15,7 +15,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (magit json-mode js2-mode company-tern treemacs company-web))))
+    (company-go go-mode magit json-mode js2-mode company-tern treemacs company-web))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -64,6 +64,15 @@
 			      (string= web-mode-cur-language "jsx"))
 			  (unless tern-mode (tern-mode))
 			(if tern-mode (tern-mode -1)))))))
+
+;; Company-go
+(require 'go-mode)
+(require 'company-go)
+
+(add-hook 'go-mode-hook (lambda()
+			  (set (make-local-variable 'company-backends) '(company-go company-keywords))
+			  (company-mode)
+			  (add-hook 'before-save-hook 'gofmt-before-save)))
 
 ;; Define auto complete for company
 (define-key company-mode-map (kbd "C-;") 'company-complete)
