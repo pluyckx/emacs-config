@@ -85,3 +85,6 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 (treemacs)
+
+(setq exec-path (append exec-path '("~/go/bin")))
+(setenv "GOPATH" "~/go")
